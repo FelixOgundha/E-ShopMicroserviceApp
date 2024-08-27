@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
 
@@ -20,6 +19,10 @@
     <Folder Include="Products\GetProductByCategory\" />
     <Folder Include="Products\GetProducts\" />
     <Folder Include="Products\UpdateProducts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
 </Project>
