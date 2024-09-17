@@ -3,8 +3,8 @@ using Catalog.API.Products.CreateProduct;
 
 namespace Catalog.API.Products.GetProductById
 {
-    public record GetProductByIdRequest(Guid id);
-    public record GetProducttByIdResponse(Product product);
+    public record GetProductByIdRequest(Guid Id);
+    public record GetProducttByIdResponse(Product Product);
     public class GetProductByIdEndPoint : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
@@ -13,7 +13,7 @@ namespace Catalog.API.Products.GetProductById
             {
                 var query = request.Adapt<GetProductByIdQuery>();
 
-                var result = await sender.Send(query);
+                var result = await sender.Send(query.id);
 
                 var response = result.Adapt<GetProducttByIdResponse>();
 
