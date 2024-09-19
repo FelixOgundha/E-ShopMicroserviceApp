@@ -13,7 +13,7 @@ namespace Catalog.API.Products.GetProductById
             {
                 var query = request.Adapt<GetProductByIdQuery>();
 
-                var result = await sender.Send(query.id);
+                var result = await sender.Send(query.Id);
 
                 var response = result.Adapt<GetProducttByIdResponse>();
 

@@ -1,6 +1,4 @@
 ﻿
-using Catalog.API.Exceptions;
-
 namespace Catalog.API.Products.DeleteProduct
 {
     public record DeleteProductCommand(Guid id):ICommand<DeleteProductResult>;
