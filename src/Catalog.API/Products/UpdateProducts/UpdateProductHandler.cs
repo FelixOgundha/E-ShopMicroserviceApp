@@ -1,8 +1,21 @@
 ﻿
+
 namespace Catalog.API.Products.UpdateProducts
 {
     public record UpdateProductCommand(Guid Id,string Name, string Description, string ImageFile, decimal Price, List<string> Category) : ICommand<UpdateProductResult>;
     public record UpdateProductResult(bool IsSuccess);
+
+    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+    {
+        public UpdateProductCommandValidator()
+        {
+            RuleFor(x => x.Id).NotEmpty().WithMessage("Id is Requires");
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Name is Requires");
+            RuleFor(x => x.Description).NotEmpty().WithMessage("Description is required");
+            RuleFor(x => x.ImageFile).NotEmpty();
+            RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0");
+        }
+    }
     internal class UpdateProductCommandHandler(IDocumentSession session,ILogger logger) : ICommandHandler<UpdateProductCommand, UpdateProductResult>
     {
         public async Task<UpdateProductResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
