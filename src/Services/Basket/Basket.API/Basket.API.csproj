@@ -10,14 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Carter" Version="8.2.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Basket\GetBasket\" />
-    <Folder Include="Basket\DeleteBasket\" />
-    <Folder Include="Basket\CheckoutBasket\" />
-    <Folder Include="Basket\StoreBasket\" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
 </Project>
