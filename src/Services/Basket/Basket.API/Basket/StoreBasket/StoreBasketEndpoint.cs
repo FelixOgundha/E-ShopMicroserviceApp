@@ -24,10 +24,10 @@ namespace Basket.API.Basket.StoreBasket
 
             })
             .WithName("StoreBasket")
-            .Produces<StoreBasketResponse>(StatusCodes.Status200OK)
+            .Produces<StoreBasketResponse>(StatusCodes.Status201Created)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Store Basket")
-            .WithDescription("Store GetBasket"); ;
+            .WithDescription("Store GetBasket"); 
         }
     }
 
