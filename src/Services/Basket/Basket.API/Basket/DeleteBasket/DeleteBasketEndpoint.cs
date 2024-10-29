@@ -1,7 +1,4 @@
 ﻿
-using Basket.API.Basket.StoreBasket;
-using Mapster;
-using MediatR;
 
 namespace Basket.API.Basket.DeleteBasket
 {

@@ -1,5 +1,4 @@
 ﻿
-using FluentValidation;
 
 namespace Basket.API.Basket.DeleteBasket
 {
