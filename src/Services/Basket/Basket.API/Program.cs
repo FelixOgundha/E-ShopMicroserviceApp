@@ -1,4 +1,7 @@
 
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+
 var builder = WebApplication.CreateBuilder(args);
 
 //Services
@@ -30,11 +33,17 @@ builder.Services.AddStackExchangeRedisCache(options =>
 });
 
 builder.Services.AddHealthChecks()
-    .AddNpgSql()
-    .AddRedis(builder.Configuration.GetConnectionString("Database")!);
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddRedis(builder.Configuration.GetConnectionString("MyRedisConStr")!);
 
 var app = builder.Build();
 
 //Configuration for HTTP Request Pipeline
+app.MapCarter();
+app.UseHealthChecks("/health",
+    new HealthCheckOptions
+    {
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
 
 app.Run();
