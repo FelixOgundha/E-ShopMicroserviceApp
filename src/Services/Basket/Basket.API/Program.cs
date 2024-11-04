@@ -22,6 +22,10 @@ builder.Services.AddMarten(opt =>
 
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
+builder.Services.AddHealthChecks()
+    .AddNpgSql()
+    .AddRedis(builder.Configuration.GetConnectionString("Database")!);
+
 var app = builder.Build();
 
 //Configuration for HTTP Request Pipeline
